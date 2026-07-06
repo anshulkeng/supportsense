@@ -7,7 +7,7 @@ import random
 from perception.transcriber import transcribe
 from perception.vision_reader import read_screenshot
 from perception.sentiment import detect_frustration
-from triage.classifier import triage
+from triage.classifier import triage_hybrid as triage
 from knowledge.kb_retriever import retrieve
 from agents.response_agent import respond
 

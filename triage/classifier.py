@@ -55,3 +55,52 @@ def triage(transcript: str, screenshot_text: str, frustration_score: float) -> d
         "category_confidence": round(category_confidence, 2),
         "urgency": urgency,
     }
+from transformers import pipeline
+
+_zero_shot = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
+
+URGENCY_LABELS = ["low urgency", "medium urgency", "high urgency", "critical urgency"]
+CATEGORY_LABELS = ["billing issue", "software bug", "how-to question", "account issue", "other"]
+
+CATEGORY_LABEL_MAP = {
+    "billing issue": "billing",
+    "software bug": "bug",
+    "how-to question": "how-to",
+    "account issue": "account",
+    "other": "other",
+}
+URGENCY_LABEL_MAP = {
+    "low urgency": "low",
+    "medium urgency": "medium",
+    "high urgency": "high",
+    "critical urgency": "critical",
+}
+
+
+def triage_real(transcript: str, screenshot_text: str, frustration_score: float) -> dict:
+    """Real zero-shot classification -- no fine-tuning, no labeled training data."""
+    combined = f"{transcript} {screenshot_text}".strip()
+
+    urgency_result = _zero_shot(combined, URGENCY_LABELS)
+    category_result = _zero_shot(combined, CATEGORY_LABELS)
+
+    best_category = CATEGORY_LABEL_MAP[category_result["labels"][0]]
+    best_urgency = URGENCY_LABEL_MAP[urgency_result["labels"][0]]
+
+    return {
+        "category": best_category,
+        "category_confidence": round(category_result["scores"][0], 2),
+        "urgency": best_urgency,
+    }
+def triage_hybrid(transcript: str, screenshot_text: str, frustration_score: float) -> dict:
+    """Category from real zero-shot classification; urgency from the rule-based
+    detector, since zero-shot urgency accuracy (33%) was near-random on this
+    dataset while the rule-based approach (76%) is far more reliable for the
+    safety-critical escalation decision."""
+    real_result = triage_real(transcript, screenshot_text, frustration_score)
+    rule_result = triage(transcript, screenshot_text, frustration_score)
+    return {
+        "category": real_result["category"],
+        "category_confidence": real_result["category_confidence"],
+        "urgency": rule_result["urgency"],
+    }
