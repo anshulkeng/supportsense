@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+langgraph
+scikit-learn
+pandas
+streamlit
+httpx
+pydantic
