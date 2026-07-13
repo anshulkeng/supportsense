@@ -39,3 +39,11 @@ def transcribe(case: dict, rng: random.Random = None) -> str:
         else:
             out.append(w)
     return " ".join(out)
+from transformers import pipeline
+from ingestion.audio_intake import load_audio
+
+_asr = pipeline("automatic-speech-recognition", model="openai/whisper-base")
+
+def transcribe_real(audio_path: str) -> str:
+    audio = load_audio(audio_path)
+    return _asr(audio)["text"].strip()
