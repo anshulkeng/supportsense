@@ -13,6 +13,9 @@
       match markers like "urgent"; also applied same fuzzy matching to CRITICAL_MARKERS/
       HIGH_MARKERS checks in triage/classifier.py
 - [x] Issue #5: README rewritten with honest before/after numbers and design rationale   
+- [x] Issue #2: Real Whisper (openai/whisper-base) tested on 3 self-recorded audio clips,
+      results saved in sample_data/real_transcription_results.md -- 2/3 had minor real ASR
+      errors (dropped/substituted words), 1/3 perfect
 
 ## Current verified numbers (after #1 and #4)
 - Category routing accuracy: 66.0% (real zero shot, BART-MNLI)
@@ -21,6 +24,5 @@
 - Critical-urgency escalation: 34/34 (PASS)
 
 ## Not started
-- [ ] Issue #2: Real audio intake + Whisper on self recorded samples
 - [ ] Issue #3: Real image intake + image to text on self made screenshots
 - [ ] Issue #6: Demo video + resume bullets
