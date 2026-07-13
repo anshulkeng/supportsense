@@ -11,6 +11,8 @@ HF zero-shot-classification pipeline once you have internet access:
     URGENCY_LABELS = ["low", "medium", "high", "critical"]
     CATEGORY_LABELS = ["billing", "bug", "how-to", "account"]
 """
+from perception.sentiment import _fuzzy_contains
+
 CATEGORY_KEYWORDS = {
     "billing": ["charge", "charged", "refund", "payment", "credit card", "subscription", "invoice"],
     "bug": ["crash", "crashes", "error", "bug", "broken", "sync", "lost data", "disappeared"],
@@ -41,9 +43,9 @@ def triage(transcript: str, screenshot_text: str, frustration_score: float) -> d
     total = sum(cat_scores.values()) or 1
     category_confidence = cat_scores.get(best_category, 0) / total if best_category != "other" else 0.3
 
-    if any(m in combined_lower for m in CRITICAL_MARKERS) or frustration_score >= 0.7:
-        urgency = "critical"
-    elif any(m in combined_lower for m in HIGH_MARKERS) or frustration_score >= 0.4:
+    if any(_fuzzy_contains(combined_lower, m) for m in CRITICAL_MARKERS) or frustration_score >= 0.7:
+      urgency = "critical"
+    elif any(_fuzzy_contains(combined_lower, m) for m in HIGH_MARKERS) or frustration_score >= 0.4:        
         urgency = "high"
     elif frustration_score >= 0.15:
         urgency = "medium"
