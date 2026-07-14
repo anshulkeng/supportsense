@@ -16,6 +16,9 @@
 - [x] Issue #2: Real Whisper (openai/whisper-base) tested on 3 self-recorded audio clips,
       results saved in sample_data/real_transcription_results.md -- 2/3 had minor real ASR
       errors (dropped/substituted words), 1/3 perfect
+- [x] Issue #3: Real BLIP captioning + Tesseract OCR tested on 3 self-made error screenshots
+      (sample_data/real_vision_results.md) -- BLIP captioning failed on all 3, OCR succeeded
+      on all 3; OCR is the correct tool for this sub-task
 
 ## Current verified numbers (after #1 and #4)
 - Category routing accuracy: 66.0% (real zero shot, BART-MNLI)
@@ -24,5 +27,4 @@
 - Critical-urgency escalation: 34/34 (PASS)
 
 ## Not started
-- [ ] Issue #3: Real image intake + image to text on self made screenshots
 - [ ] Issue #6: Demo video + resume bullets
