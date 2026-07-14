@@ -4,6 +4,9 @@ A real, runnable multimodal support-triage pipeline. Built to prove the core
 architecture works end to end, with honest, measured numbers at every stage —
 not a full production system (see "What to build next" below).
 
+## Demo video
+[Watch the walkthrough]([YOUR_VIDEO_LINK_HERE](https://drive.google.com/file/d/18MhBppdy86YrURzcve1U17xGzrj8WUdG/view?usp=drive_link))
+
 ## What's genuinely real here
 
 - **The full pipeline runs.** Transcription → Vision → Triage → (conditional)
