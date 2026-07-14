@@ -1,8 +1,3 @@
-"""
-api/main.py
-
-Run with: uvicorn api.main:app --reload --port 8001
-"""
 import uuid
 from fastapi import FastAPI
 from pydantic import BaseModel
