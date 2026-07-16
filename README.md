@@ -147,31 +147,57 @@ supportsense_mvp/
 ├── ingestion/
 
 │   ├── case_generator.py     # Synthetic cases with known ground truth
+
 │   └── audio_intake.py       # Real audio loading (librosa, 16kHz mono)
+
 ├── perception/
+
 │   ├── transcriber.py        # Simulated ASR (eval) + real Whisper (transcribe_real)
+
 │   ├── vision_reader.py      # Simulated vision (eval) + real BLIP + real OCR
+
 │   └── sentiment.py          # Real rule-based frustration detection, fuzzy matching
+
 ├── triage/classifier.py      # Real zero-shot (category) + rule-based (urgency), hybrid
+
 ├── knowledge/
+
 │   ├── kb_docs.py            # Help-center knowledge base content
+
 │   └── kb_retriever.py       # Real TF-IDF retrieval
+
 ├── agents/
+
 │   ├── nodes.py              # LangGraph node functions
+
 │   ├── graph.py              # LangGraph supervisor + conditional escalation routing
+
 │   └── response_agent.py     # Reply/escalation decision + TTS stub
+
 ├── api/main.py                # FastAPI app
+
 ├── frontend/app_streamlit.py  # Dashboard: submit case (+ real audio upload), batch eval, Queue
+
 ├── eval/run_eval.py           # Ground-truth validation script
+
 ├── sample_data/
+
 │   ├── audio/                       # 3 self-recorded real audio clips
+
 │   ├── screenshots/                 # 3 self-made error screenshots
+
 │   ├── real_transcription_results.md
+
 │   └── real_vision_results.md
+
 ├── test_real_audio.py         # Standalone real-Whisper test script
+
 ├── test_real_screenshots.py   # Standalone real BLIP-vs-OCR test script
+
 ├── progress.md                 # Build progress tracker
+
 └── requirements.txt
+
 
 ## What to build next
 
