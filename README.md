@@ -143,7 +143,9 @@ streamlit run frontend/app_streamlit.py
 
 ## Repository structure
 supportsense_mvp/
+
 ├── ingestion/
+
 │   ├── case_generator.py     # Synthetic cases with known ground truth
 │   └── audio_intake.py       # Real audio loading (librosa, 16kHz mono)
 ├── perception/
