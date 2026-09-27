@@ -214,5 +214,4 @@ supportsense_mvp/
 4. Explore fine-tuning a lightweight urgency classifier on real labeled
    support tickets, to see if it can beat both the rule-based approach and
    zero-shot.
-5. Add CI gating (`.github/workflows/eval-gate.yml`) on routing-accuracy
-   regressions, and deploy the API + dashboard publicly.
+5. Add CI gating (.github/workflows/eval-gate.yml) on routing accuracy regressions. Deploy the FastAPI backend publicly as well, so the API and dashboard can be used independently.
