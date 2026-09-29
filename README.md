@@ -1,7 +1,7 @@
 # SupportSense
 
 A real, runnable multimodal support-triage pipeline. Built to prove the core
-architecture works end to end, with honest, measured numbers at every stage —
+architecture works end to end, with honest, measured numbers at every stage :-
 not a full production system (see "What to build next" below).
 
 ## Demo video
@@ -9,7 +9,7 @@ not a full production system (see "What to build next" below).
 [Watch the full walkthrough](https://drive.google.com/file/d/18MhBppdy86YrURzcve1U17xGzrj8WUdG/view?usp=sharing)
 
 Live demo
-[https://triagepilot.streamlit.app/ ](https://triagepilot.streamlit.app/)— real Whisper transcription confirmed working on the deployed dashboard. Note: the FastAPI backend (api/main.py) is not part of this deployment; only the Streamlit dashboard is live
+[https://triagepilot.streamlit.app/ ](https://triagepilot.streamlit.app/) :- real Whisper transcription confirmed working on the deployed dashboard. Note: the FastAPI backend (api/main.py) is not part of this deployment; only the Streamlit dashboard is live
 
 ## What's genuinely real here
 
@@ -63,7 +63,7 @@ picture:
 | Real zero-shot (no tuning) | 66.0% | 33.3% |
 | **Hybrid (shipped)** | **66.0%** (zero-shot) | **76.7%** (rule-based) |
 
-Zero-shot handles *category* reasonably well  topic classification (billing
+Zero shot handles *category* reasonably well  topic classification (billing
 vs. bug vs. account) is close to what NLI-based zero-shot models are built
 for. It handles *urgency* poorly, because urgency isn't a topic it's a
 contextual, often implicit judgment about severity, which a generic entailment
