@@ -9,8 +9,7 @@ not a full production system (see "What to build next" below).
 [Watch the full walkthrough](https://drive.google.com/file/d/18MhBppdy86YrURzcve1U17xGzrj8WUdG/view?usp=sharing)
 
 Live demo
-[https://triagepilot.streamlit.app/ ](https://triagepilot.streamlit.app/)— the dashboard (real Whisper transcription, upload and triage flow) is deployed and running. 
-Note: the FastAPI backend (api/main.py) is not part of this deployment; only the Streamlit dashboard is live.
+[https://triagepilot.streamlit.app/ ](https://triagepilot.streamlit.app/)— real Whisper transcription confirmed working on the deployed dashboard. Note: the FastAPI backend (api/main.py) is not part of this deployment; only the Streamlit dashboard is live
 
 ## What's genuinely real here
 
